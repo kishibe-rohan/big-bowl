@@ -2,6 +2,7 @@ import Image from 'next/image'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import OrderDetail from '../components/OrderDetail'
 
 import styles from '../styles/Cart.module.css'
 
@@ -80,6 +81,7 @@ const Cart = () => {
                     <button className={styles.button}>CHECKOUT!</button>
                 </div>
             </div>
+            <OrderDetail total={300}/>
         </div>
     )
 }
