@@ -23,15 +23,15 @@
 
 .title {
   font-size: 18px;
-  color: white;
+  color: rgb(250, 15, 15);
 }
 
 .text {
-  color: lightgray;
+  color: white;
 }
 
 .motto {
-  color: rgb(211, 211, 211);
+  color: white;
 }
 
 @media screen and (max-width: 480px) {
