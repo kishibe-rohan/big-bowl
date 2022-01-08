@@ -1,47 +1,51 @@
 import Image from 'next/image' 
 import { useState } from 'react'
 
+import axios from 'axios'
+import {useDispatch} from 'react-redux'
+
 import styles from '../../styles/Product.module.css'
 
-const Product = () => {
-    const [price,setPrice] = useState(20)
+const Product = ({product}) => {
+    const [price,setPrice] = useState(product.prices[0])
     const [size,setSize] = useState(0)
     const [quantity,setQuantity] = useState(1)
-    const [extras,setExtras] = useState(["Garlic Sauce","Chilli Sauce","Soya Sauce","Mushroom"])
+    const [extras,setExtras] = useState([])
 
     const changePrice = (number) => {
         setPrice(price + number)
     }
 
     const handleSize = (sizeIndex) => {
-        const difference = sizeIndex*5;
+        const difference = product.prices[sizeIndex] - product.prices[size];
         setSize(sizeIndex);
         changePrice(difference)
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e,option) => {
        const checked = e.target.checked;
 
        if(checked)
        {
-           changePrice(10);
-           //setExtras((prev) => [...prev,option])
+           changePrice(option.price);
+           setExtras((prev) => [...prev,option])
        }else{
-           changePrice(-10);
-           //setExtras(extras.filter((extra) => extra._id !== option._id));
+           changePrice(-option.price);
+           setExtras(extras.filter((extra) => extra._id !== option._id));
        }
     }
+
   return (
     <div className={styles.container}>
       <div className={styles.left} >
           <div className={styles.imgContainer}>
-              <Image src="/images/schezwan.png" alt="" objectFit="contain" layout="fill"/>
+              <Image src={product.img} alt="" objectFit="contain" layout="fill"/>
           </div>
       </div>
       <div className={styles.right}>
-          <h1 className={styles.title}>Schezwan</h1>
+          <h1 className={styles.title}>{product.title}</h1>
           <span className={styles.price}>${price}</span>
-          <p className={styles.desc}>Best Schezwan in town</p>
+          <p className={styles.desc}>{product.desc}</p>
           <h3 className={styles.choose}>Choose the size</h3>
           <div className={styles.sizes}>
               <div className={styles.size} onClick={() => handleSize(0)}>
@@ -59,10 +63,10 @@ const Product = () => {
           </div>   
           <h3 className={styles.choose}>Choose toppings</h3>
       <div className={styles.ingredients}>
-          {extras.map((option) => (
-              <div className={styles.option}>
-                  <input className={styles.checkbox} type="checkbox" name={option}  onChange={(e) => handleChange(e)}/>
-                  <label htmlFor="double">{option}</label>
+          {product.extraOption.map((option) => (
+              <div className={styles.option} key={option._id}>
+                  <input className={styles.checkbox} type="checkbox" name={option.text}  onChange={(e) => handleChange(e,option)}/>
+                  <label htmlFor="double">{option.text}</label>
               </div> 
           ))}
       </div>
@@ -78,6 +82,15 @@ const Product = () => {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps = async({params}) => {
+    const res= await axios.get(`http://localhost:3000/api/products/${params.id}`)
+    return{
+        props:{
+            product:res.data
+        }
+    }
 }
 
 export default Product
