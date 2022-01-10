@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 
 import Slider from "../components/Slider";
 import ProductList from "../components/ProductList";
+import AddProduct from "../components/AddProduct";
+import AddButton from "../components/AddButton";
 
 import axios from "axios";
 
+/*
 const menuList = [
   {
     id: "1",
@@ -65,22 +67,17 @@ const menuList = [
     desc: "Best Yakisoba in town",
   },
 ];
+*/
 
-export default function Home({ pizzaList, admin }) {
+export default function Home({ foodList, admin }) {
   const [close, setClose] = useState(true);
 
   return (
     <div>
-      <Head>
-        <title>Big Bowl</title>
-        <meta
-          name="description"
-          content="Food Ordering App created with Next"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Slider />
-      <ProductList productList={pizzaList} />
+      {<AddButton setClose={setClose} />}
+      <ProductList productList={foodList} />
+      {!close && <AddProduct setClose={setClose} />}
     </div>
   );
 }
@@ -94,10 +91,10 @@ export const getServerSideProps = async (ctx) => {
   }
 
   const res = await axios.get("http://localhost:3000/api/products");
-  console.log(res);
+  //console.log(res);
   return {
     props: {
-      pizzaList: res.data,
+      foodList: res.data,
       admin,
     },
   };

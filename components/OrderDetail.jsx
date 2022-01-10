@@ -2,10 +2,15 @@ import {useState} from 'react'
 import styles from '../styles/OrderDetail.module.css'
 
 
-const OrderDetail = ({total}) => {
+const OrderDetail = ({total,createOrder}) => {
 
     const [customer,setCustomer] = useState("");
     const [address,setAddress] = useState("");
+
+    const handleOrder = () => {
+      createOrder({customer,address,total,method:0});
+    }
+
 
   return (
     <div className={styles.container}>
@@ -21,9 +26,9 @@ const OrderDetail = ({total}) => {
           </div>
           <div className={styles.item}>
               <label className={styles.label}>Address</label>
-              <textarea rows={5} placeholder='Elton St. 505 NY' type="text" onChange={(e) => setAddress(e.target.value)}/>
+              <textarea rows={5} placeholder='MG Road,Camp-411001' type="text" onChange={(e) => setAddress(e.target.value)}/>
           </div>
-          <button className={styles.button}>
+          <button className={styles.button} onClick={handleOrder}>
               Order
           </button>
       </div>
