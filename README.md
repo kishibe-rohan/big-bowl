@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1><b>Big Bowl</b> | NextJS Restraunt Website</h1>
 
-## Getting Started
+## Welcome to Big Bowl! Restraunt project created using **NextJS** and **MongoDB** for database with **PayPal** payment integration and admin dashboard with **Redux** for cart management. Login as user or admin and explore.
 
-First, run the development server:
+![BB](https://i.ibb.co/y5sQ7LM/273626321-5245372925486764-8539198474181136436-n.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<h2><b>Highlights:</b></h2>
+<hr/>
+<h3><i>Display and Order dishes</i></h3>
+<hr/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Display](https://i.ibb.co/1vfD9nw/274078083-675604786957154-5254876281017194162-n.jpg)
+![Order](https://i.ibb.co/VDJcpd7/273994135-723183512000628-7186876326613658778-n.jpg)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<hr/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<h3><i>Cart & Payment with PayPal</i></h3>
+<hr/>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Cart](https://i.ibb.co/3drWYdh/273864198-2136265876536424-1495270737488442721-n.jpg)
+![Shipping](https://i.ibb.co/f0Gg81r/273972885-975092456439289-2359812891176850864-n.jpg)
 
-## Learn More
+<hr/>
 
-To learn more about Next.js, take a look at the following resources:
+<h3><i>Admin Dashboard & Functionalities</i></h3>
+<hr/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Admin](https://i.ibb.co/Ht6v5Bx/273710798-703680094130215-3465742835619011691-n.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<hr/>
 
-## Deploy on Vercel
+<h2><b>To Be Added:</b></h2>
+<hr/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Add Products by Category.
+- Fix bugs with responsiveness.
+- Refine Search by keyword.
+<hr/>

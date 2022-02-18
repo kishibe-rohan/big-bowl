@@ -117,7 +117,7 @@ const ButtonWrapper = ({currency,showSpinner}) => {
                         </tr>
                     </tbody>
                     <tbody>
-                      {cart?.map((product) => (
+                      {cart.products.map((product) => (
                           <tr key={product.id} className={styles.tr}>
                               <td>
                                   <div className={styles.imgContainer}>
@@ -140,7 +140,7 @@ const ButtonWrapper = ({currency,showSpinner}) => {
                                   <span className={styles.price}>${product.price}</span>
                               </td>
                               <td>
-                                  <span className={styles.quantity}>${product.quantity}</span>
+                                  <span className={styles.quantity}>{product.quantity}</span>
                               </td>
                               <td>
                                   <span className={styles.total}>${product.price * product.quantity}</span>
@@ -173,7 +173,7 @@ const ButtonWrapper = ({currency,showSpinner}) => {
                   "client-id":
                     "Ae5_ne7qZxXS-WLROSHiyQti_bHoNasHPW7OJviLxO5RhLiOHj2LJVjtBIUH3T2XsU2dl4mN1Oliprhl",
                   components: "buttons",
-                  currency: "INR",
+                  currency: "USD",
                   "disable-funding": "credit,card,p24",
                 }}
               >
@@ -181,7 +181,7 @@ const ButtonWrapper = ({currency,showSpinner}) => {
               </PayPalScriptProvider>
                            </div>
                        ):(
-                           <button onClick={() => setOpen(true)}>
+                           <button onClick={() => setOpen(true)} className={styles.button}>
                                CHECKOUT NOW!
                            </button>
                        )

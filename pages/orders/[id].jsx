@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import styles from '../../styles/Orders.module.css'
 
+import axios from 'axios'
+
 const Order = ({order}) => {
   const status = order.status;
 

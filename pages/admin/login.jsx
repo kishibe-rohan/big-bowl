@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useRouter} from 'next/router'
 
+import axios from 'axios';
 import styles from '../../styles/Login.module.css'
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
     const handleSubmit = async() => {
         try{
 
-            console.log(username,password);
+            
             await axios.post("http://localhost:3000/api/login",{
                 username,
                 password
@@ -22,6 +23,7 @@ const Login = () => {
         }catch(err)
         {
             setError(true);
+           
         }
     }
 
