@@ -29,6 +29,11 @@
 
 <hr/>
 
+<h3>Login Credentials </h3>
+Username: admin PW: 123456
+
+<hr/>
+
 <h2><b>To Be Added:</b></h2>
 <hr/>
 
