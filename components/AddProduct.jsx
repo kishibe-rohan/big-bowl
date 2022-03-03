@@ -5,7 +5,7 @@ import {useRouter} from 'next/router'
 import styles from "../styles/AddProduct.module.css";
 
 const AddProduct = ({setClose}) => {
-    const [file, setFile] = useState(null);
+    const [img, setImg] = useState(null);
     const [title, setTitle] = useState(null);
     const [desc, setDesc] = useState(null);
     const [prices, setPrices] = useState([]);
@@ -27,16 +27,17 @@ const AddProduct = ({setClose}) => {
     }
 
     const handleSubmit = async() => {
-        const data = new FormData();
+       // const data = new FormData();
         try{
             const newProduct = {
                 title,
                 desc,
                 prices,
                 extraOption,
+                img
             }
 
-            await axios.post("http://localhost:3000/api/products", newProduct);
+            await axios.post("https://big-bowl.vercel.app/api/products", newProduct);
             setClose(true);
         }catch(err)
         {
@@ -50,8 +51,8 @@ const AddProduct = ({setClose}) => {
                 <span className={styles.close} onClick={() => setClose(true)}>X</span>
                 <h1>Add New Dish</h1>
                 <div className={styles.item}>
-                    <label className={styles.label}>Choose an image</label>
-                    <input type="file" onChange={(e) => setFile(e.target.files[0])}/>
+                    <label className={styles.label}>Image URL</label>
+                    <input className={styles.input} type="text" onChange={(e) => setImg(e.target.value)}/>
                 </div>
                 <div className={styles.item}>
                     <label className={styles.label}>Title</label>
@@ -93,3 +94,5 @@ const AddProduct = ({setClose}) => {
         </div>
     )
 }
+
+export default AddProduct;
