@@ -93,7 +93,7 @@ const Product = ({product}) => {
 }
 
 export const getServerSideProps = async({params}) => {
-    const res= await axios.get(`http://localhost:3000/api/products/${params.id}`)
+    const res= await axios.get(`https://big-bowl.vercel.app/api/products/${params.id}`)
     return{
         props:{
             product:res.data
