@@ -27,8 +27,10 @@ const Navbar = () => {
           <li className={styles.listItem}>Menu</li>
           <Image src="/images/logo.png" width="200px" height="150px"/>
           <li className={styles.listItem}>Events</li>
-          <li className={styles.listItem}>Blog</li>
           <li className={styles.listItem}>Contact</li>
+          <Link href="/admin/login" passHref>
+            <li className={styles.listItem}>Admin</li>
+          </Link>
         </ul>
       </div>
       <Link href="/cart" passHref>
