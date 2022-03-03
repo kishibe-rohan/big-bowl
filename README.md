@@ -34,5 +34,5 @@
 
 - Add Products by Category.
 - Fix bugs with responsiveness.
-- Refine Search by keyword.
+- Add Cloudinary Image Storage
 <hr/>
